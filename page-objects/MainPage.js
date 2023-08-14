@@ -1,13 +1,13 @@
 import { expect } from "@playwright/test";
 import { randomNum } from "../helpers";
-import { Navigation } from "../page-objects/Navigation";
+
 export class MainPage {
   constructor(page) {
     this.page = page;
     this.productCard = page.locator(".card-block");
   }
 
-  async addRandomProductToBasket() {
+  async addRandomProductToCart() {
     const productCount = await this.productCard.count();
     await expect(this.productCard).not.toHaveCount(0);
 
@@ -25,7 +25,7 @@ export class MainPage {
       expect(dialog.message()).toContain("Product added");
       await dialog.accept();
     });
-    
+
     await addToCartBtn.click();
     this.page.waitForURL(/\/cart/);
 

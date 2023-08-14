@@ -11,7 +11,7 @@ test.describe("tests for the cart", () => {
     const mainPage = new MainPage(page);
     const navigation = new Navigation(page);
     const cartPage = new CartPage(page);
-    const addedProduct = await mainPage.addRandomProductToBasket();
+    const addedProduct = await mainPage.addRandomProductToCart();
     await navigation.goToCart();
     await cartPage.checkIfProductNameInCart(addedProduct);
   });
