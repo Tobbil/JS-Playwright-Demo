@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.36.2"
+  },
+  "dependencies": {
+    "lodash.random": "^3.2.0"
   }
 }

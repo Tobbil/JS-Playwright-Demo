@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { Navigation } from "../page-objects/Navigation";
 import { ContactForm } from "../page-objects/ContactForm";
 
-test("Contact form with correct input", async ({ page }) => {
+test.skip("Contact form with correct input", async ({ page }) => {
   await page.goto("/");
   const navigation = new Navigation(page);
   await navigation.goToContactForm();

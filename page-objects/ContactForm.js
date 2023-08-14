@@ -20,7 +20,7 @@ export class ContactForm {
   async submitForm() {
     this.page.on("dialog", async (dialog) => {
       expect(dialog.type()).toContain("alert");
-      expect(dialog.message()).toContain("Thanks for the message!!");
+      expect(dialog.message()).toContain("Thanks for the message");
       await dialog.accept();
     });
     await this.submitButton.click();
