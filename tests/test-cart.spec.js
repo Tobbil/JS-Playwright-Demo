@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { MainPage } from "../page-objects/MainPage";
+import { Navigation } from "../page-objects/Navigation";
+import { CartPage } from "../page-objects/CartPage";
 
 test.describe("tests for the cart", () => {
   test.beforeEach(async ({ page }) => {
@@ -7,6 +9,10 @@ test.describe("tests for the cart", () => {
   });
   test("product is correctly added to cart", async ({ page }) => {
     const mainPage = new MainPage(page);
-    await mainPage.addRandomProductToBasket();
+    const navigation = new Navigation(page);
+    const cartPage = new CartPage(page);
+    const addedProduct = await mainPage.addRandomProductToBasket();
+    await navigation.goToCart();
+    await cartPage.checkIfProductNameInCart(addedProduct);
   });
 });
