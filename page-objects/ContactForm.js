@@ -12,17 +12,12 @@ export class ContactForm {
   }
 
   async fillForm(data) {
-    await this.emailField.fill(data.email);
-    await this.nameField.fill(data.name);
-    await this.messageField.fill(data.message);
+    data.email && (await this.emailField.fill(data.email));
+    data.name && (await this.nameField.fill(data.name));
+    data.message && (await this.messageField.fill(data.message));
   }
 
   async submitForm() {
-    this.page.on("dialog", async (dialog) => {
-      expect(dialog.type()).toContain("alert");
-      expect(dialog.message()).toContain("Thanks for the message");
-      await dialog.accept();
-    });
     await this.submitButton.click();
   }
 }

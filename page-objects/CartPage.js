@@ -1,15 +1,14 @@
-import { expect } from "@playwright/test";
+import { Navigation } from "../page-objects/Navigation";
 
 export class CartPage {
   constructor(page) {
     this.page = page;
+    this.navigation = new Navigation(page);
     this.productTable = page.locator(".table-responsive");
-    this.productNames = this.productTable.locator("#tbodyid").locator("td");
+    this.products = this.productTable.getByRole("row");
   }
 
-  async checkIfProductNameInCart(productName) {
-    await expect(this.productNames).not.toHaveCount(0);
-    const productNameInTable = await this.productNames.nth(1).innerText();
-    expect(productNameInTable).toBe(productName);
+  productByName(productName) {
+    return this.products.filter({ hasText: productName });
   }
 }
