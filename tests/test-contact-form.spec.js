@@ -29,6 +29,5 @@ test.describe("tests for the contact form", () => {
       await dialog.accept();
     });
     await contactForm.submitForm();
-    await page.pause();
   });
 });
