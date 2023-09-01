@@ -15,7 +15,7 @@ test.describe("tests for the contact form", () => {
     await contactForm.submitForm();
   });
 
-  test.only("contact form with empty name field", async ({
+  test("contact form with empty name field", async ({
     mainPage,
     page,
   }) => {

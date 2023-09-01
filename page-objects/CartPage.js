@@ -13,13 +13,7 @@ export class CartPage {
   }
 
   async deleteItem(itemName) {
-    let deleteButton;
-    for (let item of await this.products.all()) {
-      const text = await item.innerText();
-      if (text.includes(itemName)) {
-        deleteButton = await item.getByText("Delete");
-      }
-    }
-    await deleteButton.click();
+    const product = this.productByName(itemName);
+    await product.getByText("Delete").click();
   }
 }
