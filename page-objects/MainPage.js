@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
-import { randomNum } from "../helpers";
 import { Navigation } from "../page-objects/Navigation";
+import { randomNum } from "../helpers";
 
 export class MainPage {
   constructor(page) {
